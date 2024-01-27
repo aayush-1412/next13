@@ -4,33 +4,33 @@ import React from "react";
 import RenderTag from "./RenderTag";
 const hotQuestions = [
   {
-    _id: 1,
+    _id: '1',
     title: "SOmwn mkbdf vdkfvkfdnv kdbnodvnd? ndkfvjdf??",
   },
   {
-    _id: 1,
+    _id: '2',
     title: "SOmwn mkbdf vghihghuihghuhh  vdkfvkfdnv kdbnodvnd? ndkfvjdf??",
   },
   {
-    _id: 3,
+    _id: '3',
     title: "SOmwn mkbdf mbuyg bkhih vdkfvkfdnv kdbnodvnd? ndkfvjdf??",
   },
   {
-    _id: 4,
+    _id: '4',
     title:
       "bh bhih b i mbh hihih b hhi bihih   buygug huguh hih ihiiu ihiSOmwn mkbdf vdkfvkfdnv kdbnodvnd? ndkfvjdf??",
   },
   {
-    _id: 5,
+    _id: '5',
     title: "SOmwn mkbdf vdkfvkfdnv kdbnodvnd? ndkfvjdf??",
   },
 ];
 const popularTags = [
-  { _id: 1, name: "javascript", totalQuestions: 22 },
-  { _id: 2, name: "java", totalQuestions: 11 },
-  { _id: 3, name: "python", totalQuestions: 16 },
-  { _id: 4, name: "rust", totalQuestions: 25 },
-  { _id: 5, name: "c++", totalQuestions: 15 },
+  { _id: '1', name: "javascript", totalQuestions: 22 },
+  { _id: '2', name: "java", totalQuestions: 11 },
+  { _id: '3', name: "python", totalQuestions: 16 },
+  { _id: '4', name: "rust", totalQuestions: 25 },
+  { _id: '5', name: "c++", totalQuestions: 15 },
 ];
 
 const RightSidebar = () => {
