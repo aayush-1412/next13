@@ -64,7 +64,7 @@ const Question = ({mongoUserId}:Props) => {
     } finally {
       setIssubmitting(false);
     }
-    console.log(values);
+ 
   }
   const handleTagRemove = (tag: string, field: any) => {
     const newTags = field.value.filter((t: string) => t !== tag);
