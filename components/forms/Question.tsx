@@ -5,6 +5,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useRouter,usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,11 +21,17 @@ import { Input } from "@/components/ui/input";
 import { QuestionsSchema } from "@/lib/validation";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type: any = "create";
-const Question = () => {
+interface Props{
+  mongoUserId:string
+}
+const Question = ({mongoUserId}:Props) => {
   const editorRef = useRef(null);
   const [isSubmitting, setIssubmitting] = useState(false);
+  const router=useRouter()
+  const pathName=usePathname()
   const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
     defaultValues: {
@@ -35,7 +42,7 @@ const Question = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof QuestionsSchema>) {
+ async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     // disallo to press buton second time
@@ -44,6 +51,15 @@ const Question = () => {
       // make an aync call to api->create a question
       // contain all form data
       // navigate to home page
+      await createQuestion({
+        title:values.title,
+        content:values.explanation,
+        tags:values.tags,
+        author:JSON.parse(mongoUserId),
+        path:pathName,
+        
+      })
+      router.push("/")
     } catch (error) {
     } finally {
       setIssubmitting(false);
@@ -127,6 +143,7 @@ const Question = () => {
                     // @ts-ignore
                     editorRef.current = editor;
                   }}
+                  
                   initialValue={""}
                   init={{
                     height: 350,
