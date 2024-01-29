@@ -1,6 +1,6 @@
 import Question from "@/components/forms/Question";
 
-import { auth } from "@clerk/nextjs";
+// import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import type { Metadata } from "next";
